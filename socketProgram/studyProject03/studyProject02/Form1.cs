@@ -13,6 +13,8 @@ namespace studyProject02
     public partial class Form1 : Form
     {
         TcpClient tClient = new TcpClient();
+        public static UserControl1 userControl1 = new UserControl1();
+        public static SubDisplay subDisplay = new SubDisplay();
 
         public Form1()
         {
@@ -30,8 +32,8 @@ namespace studyProject02
             // 初期表示の画面を最初のIndexとして追加
             List<UserControl> userControlList = new List<UserControl>
             {
-                UserControl1.sharedIncetance,
-                SubDisplay.sharedIncetance
+                userControl1,
+                subDisplay
             };
             // パネル初期表示の設定処理
             initPanelSetting(userControlList);
@@ -87,32 +89,3 @@ namespace studyProject02
 
     }
 }
-
-
-
-
-
-// まだこっちのほうがスマート
-// Listの処理においてはforeach使うより早いらしい
-//for (int i = 0; i < userControlList.Count; i++)
-//{
-//    panel1.Controls.Add(userControlList[i]);
-//    if (i != 0)
-//    {
-//        userControlList[i].Visible = false;
-//    }
-//}
-
-
-//int roopCounter = 0;
-//foreach (UserControl userControlitem in userControlList)
-//{
-//    panel1.Controls.Add(userControlitem);
-//    // 初回のuserControl(メイン画面)以外の場合処理を行う
-//    if (roopCounter != 0)
-//    {
-//        // userControlのデフォルト設定はtrueのため、最初のControl(メイン画面)以外はfalseに設定
-//        userControlitem.Visible = false;
-//    }
-//    roopCounter++;
-//}
