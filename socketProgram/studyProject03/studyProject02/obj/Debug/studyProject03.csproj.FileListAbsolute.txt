@@ -1,15 +1,3 @@
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.exe.config
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.exe
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.pdb
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject03.csprojAssemblyReference.cache
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.Form1.resources
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.Properties.Resources.resources
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.SubDisplay.resources
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.UserControl1.resources
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject03.csproj.GenerateResource.cache
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject03.csproj.CoreCompileInputs.cache
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.exe
-C:\Users\pyonk\Desktop\socketProgram\studyProject03\studyProject02\obj\Debug\studyProject02.pdb
 C:\Users\pyonk\Documents\github\studySample3\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.exe.config
 C:\Users\pyonk\Documents\github\studySample3\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.exe
 C:\Users\pyonk\Documents\github\studySample3\socketProgram\studyProject03\studyProject02\bin\Debug\studyProject02.pdb
