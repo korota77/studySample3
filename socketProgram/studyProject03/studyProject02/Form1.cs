@@ -13,12 +13,12 @@ namespace studyProject02
     public partial class Form1 : Form
     {
         TcpClient tClient = new TcpClient();
-        public static UserControl1 userControl1 = new UserControl1();
-        public static SubDisplay subDisplay = new SubDisplay();
 
         public Form1()
         {
             InitializeComponent();
+            // 初期化
+            ControllerManager.init();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,15 +28,8 @@ namespace studyProject02
             tClient.OnDisconnectedEventAction += tClient_OnDisconnected;
             tClient.OnReceiveDataAction += tClient_OnReceiveData;
 
-            // ユーザコントロールのリスト(画面のリスト)
-            // 初期表示の画面を最初のIndexとして追加
-            List<UserControl> userControlList = new List<UserControl>
-            {
-                userControl1,
-                subDisplay
-            };
             // パネル初期表示の設定処理
-            initPanelSetting(userControlList);
+            ControllerManager.controller.switchDisplay(Values.DISPLAY_USERCONTROL);
         }
 
         /** 接続OKイベント **/
@@ -56,36 +49,5 @@ namespace studyProject02
         {
 
         }
-
-
-        /// <summary>t
-        /// パネルコントロールと各ユーザーコントロールの紐付け処理
-        /// </summary>
-        /// <param name="userControlList">紐づけを行うUserControllのリスト</param>
-        private void initPanelSetting(List<UserControl> userControlList)
-        {
-            // 本当は??のnull演算子を使いたいのになんか怒ってくるから雑魚判定する
-            if (userControlList == null)
-            {
-                Console.WriteLine("Error : userControllList is not exist");
-                return;
-            }
-
-            // 画面分初期化処理を反映
-            foreach (var result in userControlList.Select((panelItem, index) => new { panelItem,　index }))
-            {
-                // パネルへの登録
-                panel1.Controls.Add(result.panelItem);
-
-                // 最初のコントロールではない場合不可視状態とする
-                if (result.index != 0) 
-                {
-                    result.panelItem.Visible = false;
-                }
-               
-            }
-
-        }
-
     }
 }

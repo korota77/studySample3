@@ -15,22 +15,8 @@ namespace studyProject02
 {
     public partial class UserControl1 : UserControl
     {
-        //// シングルトン保存用
-        //private static UserControl1 _sharedInstace;
-
         TcpClient tClient = new TcpClient();
 
-        //public static UserControl1 sharedIncetance
-        //{
-        //    get
-        //    {
-        //        return _sharedInstace;
-        //    }
-        //}
-
-        /// <summary>
-        /// コンストラクタ(シングルトン化のため隠蔽)
-        /// </summary>
         public UserControl1()
         {
             InitializeComponent();
@@ -40,25 +26,10 @@ namespace studyProject02
             tClient.OnErrorEventAction += tClient_OnError;
         }
 
-        ///// <summary>
-        ///// 静的コンストラクタ
-        ///// </summary>
-        //static UserControl1()
-        //{
-        //    _sharedInstace = new UserControl1();
-        //}
-
-        /// <summary>
-        /// サブ画面遷移用メソッド
-        /// </summary>
-        /// <param name="sender">発生オブジェクト</param>
-        /// <param name="e">イベント情報</param>
         private void SubDisplayButtonClick(object sender, EventArgs e)
         {
-            // 自身を無効化
-            this.Visible = false;
-            // サブ画面有効化
-            Form1.subDisplay.Visible = true;
+            // 画面遷移（切替）
+            ControllerManager.controller.switchDisplay(Values.DISPLAY_SUBDISPLAY);
         }
 
         private void Button2OnClick(object sender, EventArgs e)
