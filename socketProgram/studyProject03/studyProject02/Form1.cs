@@ -30,6 +30,13 @@ namespace studyProject02
 
             // パネル初期表示の設定処理
             ControllerManager.controller.switchDisplay(Values.DISPLAY_USERCONTROL);
+
+            // Form1ウィンドウにデザインを登録
+            List<string> keyList = new List<string>(ControllerManager.controller.getDisplayList().Keys);
+            foreach (String key in keyList)
+            {
+                panel1.Controls.Add(ControllerManager.controller.getDisplayList()[key]);
+            }
         }
 
         /** 接続OKイベント **/
