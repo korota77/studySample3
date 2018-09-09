@@ -36,16 +36,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 214);
+            this.textBox1.Location = new System.Drawing.Point(289, 144);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(573, 19);
+            this.textBox1.Size = new System.Drawing.Size(242, 19);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "レイアウトはお察しでございます";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 184);
+            this.label1.Location = new System.Drawing.Point(387, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(316, 355);
+            this.button1.Location = new System.Drawing.Point(276, 217);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(267, 56);
             this.button1.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(316, 465);
+            this.button2.Location = new System.Drawing.Point(276, 309);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(267, 59);
             this.button2.TabIndex = 3;
@@ -80,7 +80,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "SubDisplay";
-            this.Size = new System.Drawing.Size(944, 626);
+            this.Size = new System.Drawing.Size(784, 461);
             this.ResumeLayout(false);
             this.PerformLayout();
 

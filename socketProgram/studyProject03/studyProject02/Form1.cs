@@ -55,7 +55,7 @@ namespace studyProject02
             // 追加
             displaylist.Add(key, newDisplay);
             // Formへの反映
-            panel1.Controls.Add(newDisplay);
+            tableLayoutPanel1.Controls.Add(newDisplay);
             Console.WriteLine("画面ID : " + key + " を追加しました。");
 
         }

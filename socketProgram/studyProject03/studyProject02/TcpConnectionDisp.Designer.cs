@@ -46,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Name = "TcpConnectionDisp";
-            this.Size = new System.Drawing.Size(752, 435);
+            this.Size = new System.Drawing.Size(784, 461);
             this.ResumeLayout(false);
             this.PerformLayout();
 

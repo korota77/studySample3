@@ -17,16 +17,21 @@ namespace studyProject02
     {
         TcpClient tClient = new TcpClient();
 
+        TcpServer tServer;
+
         // 画面切り替えイベント
         public event Action<string> OnSwitchDisplayAction;
 
         public UserControl1()
         {
             InitializeComponent();
+            MyInitializeComponent();
             tClient.OnConnectedEventAction += tClient_OnConnected;
             tClient.OnDisconnectedEventAction += tClient_OnDisconnected;
             tClient.OnReceiveDataAction += tClient_OnReceiveData;
-            tClient.OnErrorEventAction += tClient_OnError;
+            tClient.OnErrorEventAction += OnCommonError;
+
+
         }
 
         private void SubDisplayButtonClick(object sender, EventArgs e)
@@ -39,21 +44,31 @@ namespace studyProject02
             
         }
 
-        private void Button2OnClick(object sender, EventArgs e)
+        private void StertTcpServerOnClick(object sender, EventArgs e)
         {
-            MessageBox.Show("でたーー！！ダイアログ", "これがダイアログ", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3, MessageBoxOptions.DefaultDesktopOnly);
+            try
+            {
+                Console.WriteLine("Main ThreadID:" + Thread.CurrentThread.ManagedThreadId);
+                tServer = new TcpServer("60001");
+                tServer.OnServerReceiveAction += tServer_OnReceiveData;
+                tServer.init();
+            }
+            catch (Exception serverException)
+            {
+                tServer.DisConnect();
+                tServer = null;
+                OnCommonError(serverException);
+
+            }
         }
 
-        private void TestMethodSample(object sender, EventArgs e)
+        private void OnTcpServerDisConnect(object sender, EventArgs e)
         {
-            indexer_sample dic = new indexer_sample();
-            dic["ﾊｧ"] = "( ﾟДﾟ)？";
-            dic["ﾊｧﾊｧ"] = "(;´Д｀)";
-            dic["ﾎﾟｶｰﾝ"] = "( ﾟдﾟ)";
-            dic["ｵﾏｴﾓﾅ"] = "(´∀｀)";
-
-            Console.Write(dic["ﾊｧﾊｧ"]);
-
+            if (tServer != null)
+            {
+                tServer.DisConnect();
+                tServer = null;
+            }
         }
 
         private void ConnectButtonClick(object sender, EventArgs e)
@@ -66,7 +81,7 @@ namespace studyProject02
             }
             catch (Exception ex)
             {
-                tClient_OnError(ex);
+                OnCommonError(ex);
             }
             
 
@@ -76,12 +91,12 @@ namespace studyProject02
         {
             try
             {
-                tClient.Send(textBox1.Text);
+                tClient.Send(ClientSendData.Text);
             }
             catch (Exception ex)
             {
 
-                tClient_OnError(ex);
+                OnCommonError(ex);
             }
         }
 
@@ -93,7 +108,22 @@ namespace studyProject02
             }
         }
 
-        void tClient_OnDisconnected(Object sender, EventArgs e)
+        private void tServer_OnReceiveData(string msg)
+        {
+            // データ受信イベント
+            Debug.WriteLine("tServer_OnReceiveData" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<String>(this.tServer_OnReceiveData), msg);
+            }
+            else
+            {
+                serverReceiveData.Text = msg;
+            }
+            
+        }
+
+        private void tClient_OnDisconnected(Object sender, EventArgs e)
         {
             // 接続断イベント
             Debug.WriteLine("tClient_OnDisconnected" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
@@ -111,20 +141,25 @@ namespace studyProject02
             Debug.WriteLine("tClient_OnReceiveData" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
         }
 
-        void tClient_OnError(Exception ex)
+        void OnCommonError(Exception ex)
         {
             // エラー用イベント
             Debug.WriteLine("tClient_OnError" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
             if (this.InvokeRequired)
             {
-                this.BeginInvoke(new Action<Exception>(this.tClient_OnError), ex);
+                this.BeginInvoke(new Action<Exception>(this.OnCommonError), ex);
             }
             else
             {
                 MessageBox.Show(ex.Message);
             }
             
-            
         }
+
+        private void MyInitializeComponent()
+        {
+            this.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+        }
+
     }
 }

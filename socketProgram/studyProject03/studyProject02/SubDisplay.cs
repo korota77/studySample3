@@ -18,6 +18,7 @@ namespace studyProject02
         public SubDisplay()
         {
             InitializeComponent();
+            MyInitializeComponent();
         }
 
         private void returnButtonOnClick(object sender, EventArgs e)
@@ -30,6 +31,11 @@ namespace studyProject02
         {
             // 画面遷移 (切替)
             OnSwitchDisplayAction(Constants.DISPLAY_TCPCONNECTIONDISP);
+        }
+
+        private void MyInitializeComponent()
+        {
+            this.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
         }
     }
 }
