@@ -56,6 +56,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="indexer_sample.cs" />
+    <Compile Include="TcpConnectionDisp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TcpConnectionDisp.Designer.cs">
+      <DependentUpon>TcpConnectionDisp.cs</DependentUpon>
+    </Compile>
     <Compile Include="testname\iniFileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="SubDisplay.resx">
       <DependentUpon>SubDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TcpConnectionDisp.resx">
+      <DependentUpon>TcpConnectionDisp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>

@@ -25,5 +25,11 @@ namespace studyProject02
             // 画面遷移（切替）
             OnSwitchDisplayAction(Constants.DISPLAY_USERCONTROL);
         }
+
+        private void OnTcpConnectionDispTransition(object sender, EventArgs e)
+        {
+            // 画面遷移 (切替)
+            OnSwitchDisplayAction(Constants.DISPLAY_TCPCONNECTIONDISP);
+        }
     }
 }

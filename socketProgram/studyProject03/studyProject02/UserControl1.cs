@@ -18,7 +18,7 @@ namespace studyProject02
         TcpClient tClient = new TcpClient();
 
         // 画面切り替えイベント
-        public Action<string> OnSwitchDisplayAction { get; set; }
+        public event Action<string> OnSwitchDisplayAction;
 
         public UserControl1()
         {
@@ -31,8 +31,12 @@ namespace studyProject02
 
         private void SubDisplayButtonClick(object sender, EventArgs e)
         {
-            // 画面遷移（切替）
-            OnSwitchDisplayAction(Constants.DISPLAY_SUBDISPLAY);
+            if (OnSwitchDisplayAction != null)
+            {
+                // 画面遷移（切替）
+                OnSwitchDisplayAction(Constants.DISPLAY_SUBDISPLAY);
+            }
+            
         }
 
         private void Button2OnClick(object sender, EventArgs e)
@@ -113,7 +117,7 @@ namespace studyProject02
             Debug.WriteLine("tClient_OnError" + " ThreadID:" + Thread.CurrentThread.ManagedThreadId);
             if (this.InvokeRequired)
             {
-                this.Invoke(new Action<Exception>(this.tClient_OnError), ex);
+                this.BeginInvoke(new Action<Exception>(this.tClient_OnError), ex);
             }
             else
             {

@@ -31,6 +31,7 @@ namespace studyProject02
             // 初期表示設定
             initPanelSetting();
         }
+
         /// <summary>
         /// 画面(UserControl)の追加
         /// </summary>
@@ -65,13 +66,27 @@ namespace studyProject02
         /// <param name="target"></param>
         public void OnSwitchDisplay(String target)
         {
+            if (target == null)
+            {
+                return;
+            }
 
             List<string> keyList = new List<string>(displaylist.Keys);
+
+            // targetが存在するか判定
+            if (keyList.Where(key => target.Equals(key)) == null)
+            {
+                // 存在しない場合
+                return;
+            }
+
             foreach (String key in keyList)
             {
+                // ターゲットコントロールの有効化、それ以外の無効化
                 if (target.Equals(key))
                 {
                     displaylist[key].Visible = true;
+                    // 一応現在表示中の画面IDを保持
                     activeDisplayID = key;
                 }
                 else
@@ -82,6 +97,9 @@ namespace studyProject02
 
         }
 
+        /// <summary>
+        /// パネルコントロールの初期設定
+        /// </summary>
         private void initPanelSetting()
         {
             UserControl1 userControl1 = new UserControl1();
@@ -92,6 +110,11 @@ namespace studyProject02
             subDisplay.OnSwitchDisplayAction += OnSwitchDisplay;
             addDisplay(Constants.DISPLAY_SUBDISPLAY, subDisplay);
 
+            TcpConnectionDisp tcpConnectionDisp = new TcpConnectionDisp();
+            tcpConnectionDisp.OnSwitchDisplayAction += OnSwitchDisplay;
+            addDisplay(Constants.DISPLAY_TCPCONNECTIONDISP, tcpConnectionDisp);
+
+            // 最初に表示する画面を設定
             OnSwitchDisplay(Constants.DISPLAY_USERCONTROL);
         }
     }
