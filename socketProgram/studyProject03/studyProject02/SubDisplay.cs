@@ -12,6 +12,9 @@ namespace studyProject02
 {
     public partial class SubDisplay : UserControl
     {
+        // 画面切り替えイベント
+        public event Action<string> OnSwitchDisplayAction;
+
         public SubDisplay()
         {
             InitializeComponent();
@@ -20,7 +23,7 @@ namespace studyProject02
         private void returnButtonOnClick(object sender, EventArgs e)
         {
             // 画面遷移（切替）
-            ControllerManager.controller.switchDisplay(Values.DISPLAY_USERCONTROL);
+            OnSwitchDisplayAction(Constants.DISPLAY_USERCONTROL);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace studyProject02
     class StudyController
     {
         // 画面リスト
-        private Dictionary<String, UserControl> displaylist;
+        public Dictionary<String, UserControl> displaylist { get; set; }
 
         // 現在表示中の画面ID
-        private String activeDisplayID;
+        public String activeDisplayID { get; set; }
 
         public StudyController()
         {

@@ -14,31 +14,30 @@ namespace studyProject02
     class TcpClient
     {
         /** プライベート変数 **/
-        //Socket
+        // Socket
         private Socket mySocket = null;
 
-        //受信データ保存用
+        // 受信データ保存用
         private MemoryStream myMs;
 
-        //ロック用
+        // ロック用
         private readonly object syncLock = new object();
 
-        //送受信文字列エンコード
+        // 送受信文字列エンコード
         private Encoding enc = Encoding.UTF8;
-
 
         /** イベント **/
         // データ受信イベント
-        public Action<object, string> OnReceiveDataAction;
+        public event Action<object, string> OnReceiveDataAction;
 
         // 接続断イベント
-        public Action<object, EventArgs> OnDisconnectedEventAction;
+        public event Action<object, EventArgs> OnDisconnectedEventAction;
 
         // 接続OKイベント
-        public Action<EventArgs> OnConnectedEventAction;
+        public event Action<EventArgs> OnConnectedEventAction;
 
         // エラー用イベント
-        public Action<Exception> OnErrorEventAction;
+        public event Action<Exception> OnErrorEventAction;
 
 
         /** プロパティ **/

@@ -30,8 +30,8 @@ namespace studyProject02
             _controller = new StudyController();
 
             // 使用するディスプレイを予め登録
-            _controller.addDisplay(Values.DISPLAY_USERCONTROL, new UserControl1());
-            _controller.addDisplay(Values.DISPLAY_SUBDISPLAY, new SubDisplay());
+            _controller.addDisplay(Constants.DISPLAY_USERCONTROL, new UserControl1());
+            _controller.addDisplay(Constants.DISPLAY_SUBDISPLAY, new SubDisplay());
         }
         
     }

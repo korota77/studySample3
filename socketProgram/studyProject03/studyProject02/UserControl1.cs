@@ -17,6 +17,9 @@ namespace studyProject02
     {
         TcpClient tClient = new TcpClient();
 
+        // 画面切り替えイベント
+        public Action<string> OnSwitchDisplayAction { get; set; }
+
         public UserControl1()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace studyProject02
         private void SubDisplayButtonClick(object sender, EventArgs e)
         {
             // 画面遷移（切替）
-            ControllerManager.controller.switchDisplay(Values.DISPLAY_SUBDISPLAY);
+            OnSwitchDisplayAction(Constants.DISPLAY_SUBDISPLAY);
         }
 
         private void Button2OnClick(object sender, EventArgs e)

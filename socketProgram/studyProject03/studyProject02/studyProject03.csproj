@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerManager.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="StudyController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
