@@ -49,14 +49,15 @@ namespace studyProject02
             try
             {
                 Console.WriteLine("Main ThreadID:" + Thread.CurrentThread.ManagedThreadId);
-                tServer = new TcpServer("60001");
-                tServer.OnServerReceiveAction += tServer_OnReceiveData;
+                if (tServer == null)
+                {
+                    tServer = new TcpServer("60001");
+                    tServer.OnServerReceiveAction += tServer_OnReceiveData;
+                }
                 tServer.init();
             }
             catch (Exception serverException)
             {
-                tServer.DisConnect();
-                tServer = null;
                 OnCommonError(serverException);
 
             }
@@ -66,6 +67,7 @@ namespace studyProject02
         {
             if (tServer != null)
             {
+                // serverのインスタンスを開放するのは基本このタイミングだけにする(複数のインスタンスができるとエンドポイントの取り合いになる)
                 tServer.DisConnect();
                 tServer = null;
             }

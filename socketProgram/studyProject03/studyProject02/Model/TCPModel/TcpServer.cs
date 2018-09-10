@@ -42,6 +42,11 @@ namespace studyProject02
 
         public void init()
         {
+            if (sock != null)
+            {
+                Console.WriteLine("already tcp server");
+                return;
+            }
             Console.WriteLine("init ThreadID:" + Thread.CurrentThread.ManagedThreadId);
             sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             sock.Bind(ipEndPoint);
@@ -133,7 +138,9 @@ namespace studyProject02
         {
             Console.WriteLine("disConnect ThreadID:" + Thread.CurrentThread.ManagedThreadId);
             IsOpenSoket = false;
+            //sock.Shutdown(SocketShutdown.Both);
             sock.Close();
+            sock = null;
         }
     }
 }

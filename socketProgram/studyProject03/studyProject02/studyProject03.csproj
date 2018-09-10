@@ -64,7 +64,7 @@
       <DependentUpon>TcpConnectionDisp.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\TCPModel\TcpServer.cs" />
-    <Compile Include="testname\iniFileManager.cs" />
+    <Compile Include="Model\iniFileManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\SubDisplay.cs">
