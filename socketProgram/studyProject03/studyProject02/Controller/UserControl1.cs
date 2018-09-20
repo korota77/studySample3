@@ -36,12 +36,9 @@ namespace studyProject02
 
         private void SubDisplayButtonClick(object sender, EventArgs e)
         {
-            if (OnSwitchDisplayAction != null)
-            {
-                // 画面遷移（切替）
-                OnSwitchDisplayAction(Constants.DISPLAY_SUBDISPLAY);
-            }
-            
+            // 画面遷移（切替）
+            OnSwitchDisplayAction?.Invoke(Constants.DISPLAY_SUBDISPLAY);
+
         }
 
         private void StertTcpServerOnClick(object sender, EventArgs e)
@@ -76,7 +73,7 @@ namespace studyProject02
         private void ConnectButtonClick(object sender, EventArgs e)
         {
             String hostName = Dns.GetHostName();
-            int port = 60001;
+            int port = 50001;
             try
             {
                 tClient.Connect(hostName, port);
@@ -160,8 +157,14 @@ namespace studyProject02
 
         private void MyInitializeComponent()
         {
+            // アンカーの設定(Formサイズ可変用)
             this.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Tcp通信画面へ
+            OnSwitchDisplayAction(Constants.DISPLAY_TCPCONNECTIONDISP);
+        }
     }
 }

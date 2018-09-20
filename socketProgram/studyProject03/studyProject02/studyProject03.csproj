@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\TCPModel\TcpAsyncServer.cs" />
     <Compile Include="Sample\ControllerManager.cs" />
     <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\TCPModel\StateObject.cs" />

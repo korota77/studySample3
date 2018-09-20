@@ -37,16 +37,18 @@
             this.button6 = new System.Windows.Forms.Button();
             this.ClientSendData = new System.Windows.Forms.TextBox();
             this.serverReceiveData = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Controls.Add(this.button3, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
@@ -55,6 +57,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button6, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.ClientSendData, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.serverReceiveData, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.button7, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -157,6 +160,17 @@
             this.serverReceiveData.Size = new System.Drawing.Size(122, 23);
             this.serverReceiveData.TabIndex = 7;
             // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button7.Location = new System.Drawing.Point(520, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(182, 41);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "通信画面へ行くよぼたん";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -184,5 +198,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox ClientSendData;
         private System.Windows.Forms.Label serverReceiveData;
+        private System.Windows.Forms.Button button7;
     }
 }

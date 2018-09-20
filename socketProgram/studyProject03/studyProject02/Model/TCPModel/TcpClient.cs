@@ -90,7 +90,7 @@ namespace studyProject02
             }
 
             //接続断イベント発生
-            OnDisconnectedEventAction(this, new EventArgs());
+            OnDisconnectedEventAction?.Invoke(this, new EventArgs());
         }
         /// <summary>
         /// Hostに接続
@@ -142,7 +142,7 @@ namespace studyProject02
                     client.RemoteEndPoint.ToString());
 
                 //接続OKイベント発生
-                OnConnectedEventAction(new EventArgs());
+                OnConnectedEventAction?.Invoke(new EventArgs());
                 //データ受信開始
                 StartReceive();
             }
@@ -150,7 +150,7 @@ namespace studyProject02
             {
                 Console.WriteLine(e.ToString());
                 // エラーイベント発生
-                OnErrorEventAction(e);
+                OnErrorEventAction?.Invoke(e);
             }
         }
         /// <summary>
@@ -173,7 +173,7 @@ namespace studyProject02
             {
                 Console.WriteLine(e.ToString());
                 // エラーイベント発生
-                OnErrorEventAction(e);
+                OnErrorEventAction?.Invoke(e);
             }
             
         }
@@ -221,9 +221,8 @@ namespace studyProject02
                         //受信データ初期化
                         myMs.Close();
                         myMs = new MemoryStream();
-
                         //データ受信イベント発生
-                        OnReceiveDataAction(this, rsvStr);
+                        OnReceiveDataAction?.Invoke(this, rsvStr);
 
                     }
                     else
