@@ -1,4 +1,5 @@
-﻿using System;
+﻿using studyProject02.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -88,13 +89,13 @@ namespace studyProject02
                     displaylist[key].Visible = true;
                     // 一応現在表示中の画面IDを保持
                     activeDisplayID = key;
+
                 }
                 else
                 {
                     displaylist[key].Visible = false;
                 }
             }
-
         }
 
         /// <summary>
@@ -113,6 +114,10 @@ namespace studyProject02
             TcpConnectionDisp tcpConnectionDisp = new TcpConnectionDisp();
             tcpConnectionDisp.OnSwitchDisplayAction += OnSwitchDisplay;
             addDisplay(Constants.DISPLAY_TCPCONNECTIONDISP, tcpConnectionDisp);
+
+            SerialPortConnectionDisp serialPortConnectionDisp = new SerialPortConnectionDisp();
+            serialPortConnectionDisp.OnSwitchDisplayAction += OnSwitchDisplay;
+            addDisplay(Constants.DISPLAY_SERIALPORTCONNECTIONDISP, serialPortConnectionDisp);
 
             // 最初に表示する画面を設定
             OnSwitchDisplay(Constants.DISPLAY_USERCONTROL);

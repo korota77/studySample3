@@ -8,6 +8,7 @@ namespace studyProject02
         public const String DISPLAY_USERCONTROL = "UserControl";
         public const String DISPLAY_SUBDISPLAY = "SubDisplay";
         public const String DISPLAY_TCPCONNECTIONDISP = "TcpConnectionDisp";
+        public const String DISPLAY_SERIALPORTCONNECTIONDISP = "SerialPortConnectionDisp";
     }
 
     enum StudyProjectDisplayName
